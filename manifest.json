@@ -1,0 +1,22 @@
+{
+  "manifest_version": 3,
+  "name": "Tab Bro",
+  "version": "1.0.0",
+  "description": "This bro's got your back! The extension will optimize your chrome browsing experience in one central place.",
+  "author": "Pascal T",
+  "chrome_url_overrides": {
+    "newtab": "index.html"
+  },
+  "options_page": "options.html",
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Tab Bro - The extension that has your back!"
+  },
+  "icons": {
+    "16": "images/tabbro_icon_x16.png",
+    "32": "images/tabbro_icon_x32.png",
+    "48": "images/tabbro_icon_x48.png",
+    "128": "images/tabbro_icon_x128.png"
+  },
+  "permissions": ["storage"]
+}
