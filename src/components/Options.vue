@@ -1,7 +1,13 @@
-<script setup></script>
+<script setup>
+import settings from '../data/settings.json';
+import CheckboxGroup from './forms/CheckboxGroup.vue';
+</script>
 
 <template>
-  <h1 class="text-3xl">Options</h1>
+  <div class="settings flex flex-wrap dark:text-white">
+    <!-- <Loading v-if="!settings" /> -->
+    <!-- <CheckboxGroup :items="storedSettings" /> -->
+  </div>
 </template>
 
-<style scoped></style>
+<style lang="scss" scoped></style>

@@ -1,5 +1,9 @@
-import { createApp } from 'vue';
+import './theme-check.js';
 import './style.css';
+import { createApp } from 'vue';
+import { createPinia } from 'pinia';
 import NewTab from './components/NewTab.vue';
 
-createApp(NewTab).mount('#newtab');
+const pinia = createPinia();
+
+createApp(NewTab).use(pinia).mount('#newtab');

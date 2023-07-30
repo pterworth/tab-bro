@@ -1,5 +1,9 @@
-import { createApp } from 'vue';
+import './theme-check.js';
 import './style.css';
+import { createApp } from 'vue';
+import { createPinia } from 'pinia';
 import Popup from './components/Popup.vue';
 
-createApp(Popup).mount('#popup');
+const pinia = createPinia();
+
+createApp(Popup).use(pinia).mount('#popup');
