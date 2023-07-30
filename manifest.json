@@ -12,11 +12,26 @@
     "default_popup": "popup.html",
     "default_title": "Tab Bro - The extension that has your back!"
   },
+  "content_scripts": [
+    {
+      "js": [
+        "src/content-scripts/reading-time.js",
+        "src/content-scripts/screenshots.js",
+        "src/content-scripts/scroll-to.js",
+        "src/content-scripts/ruler.js"
+      ],
+      "matches": ["<all_urls>"]
+    }
+  ],
+  "background": {
+    "service_worker": "src/service-workers/background.js",
+    "type": "module"
+  },
   "icons": {
     "16": "images/tabbro_icon_x16.png",
     "32": "images/tabbro_icon_x32.png",
     "48": "images/tabbro_icon_x48.png",
     "128": "images/tabbro_icon_x128.png"
   },
-  "permissions": ["storage"]
+  "permissions": ["storage", "activeTab", "tabs"]
 }

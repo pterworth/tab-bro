@@ -1,0 +1,18 @@
+{
+  "color-themes": [
+    {
+      "id": 2,
+      "label": "Dark",
+      "description": "",
+      "value": "false",
+      "checked": false
+    },
+    {
+      "id": 3,
+      "label": "Light",
+      "description": "",
+      "value": "false",
+      "checked": false
+    }
+  ]
+}
