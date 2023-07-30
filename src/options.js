@@ -1,5 +1,9 @@
-import { createApp } from 'vue';
+import './theme-check.js';
 import './style.css';
+import { createApp } from 'vue';
+import { createPinia } from 'pinia';
 import Options from './components/Options.vue';
 
-createApp(Options).mount('#options');
+const pinia = createPinia();
+
+createApp(Options).use(pinia).mount('#options');
