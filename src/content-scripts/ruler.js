@@ -5,13 +5,16 @@ let rulerEnabled = false;
 function toggleRuler(enabled) {
   rulerEnabled = enabled;
   if (enabled) {
-    // Add event listeners for mousemove and mouseout
+    // Add event listeners for mousemove
     document.addEventListener('mousemove', onMouseMove);
-    document.addEventListener('mouseout', onMouseOut);
   } else {
     // Remove event listeners when ruler is disabled
     document.removeEventListener('mousemove', onMouseMove);
-    document.removeEventListener('mouseout', onMouseOut);
+    // Remove the ruler element when the ruler is disabled
+    const rulerElement = document.getElementById('ruler');
+    if (rulerElement) {
+      rulerElement.remove();
+    }
   }
 }
 
@@ -22,20 +25,28 @@ function onMouseMove(event) {
   const mouseY = event.clientY;
 
   // Use mouseX and mouseY to draw the ruler on the webpage
-  // For example, you can create a ruler element and update its position and size
-  // based on the mouse position
-  const rulerElement = document.getElementById('ruler');
-  rulerElement.style.left = mouseX + 'px';
+  let rulerElement = document.getElementById('ruler');
+  if (!rulerElement) {
+    rulerElement = createRulerElement();
+  }
+  rulerElement.style.left = '0px';
   rulerElement.style.top = mouseY + 'px';
 }
 
-// Function to handle mouseout (when the mouse leaves the webpage)
-function onMouseOut() {
-  // Remove the ruler element when the mouse leaves the webpage
-  const rulerElement = document.getElementById('ruler');
-  if (rulerElement) {
-    rulerElement.remove();
-  }
+// Function to create the ruler element
+function createRulerElement() {
+  const rulerElement = document.createElement('div');
+  rulerElement.id = 'ruler';
+  Object.assign(rulerElement.style, {
+    position: 'fixed',
+    'z-index': '999999999',
+    border: '1px solid red',
+    width: '100vw',
+    height: '1px',
+    pointerEvents: 'none'
+  });
+  document.body.appendChild(rulerElement);
+  return rulerElement;
 }
 
 // Listen for messages from the extension
